@@ -1,18 +1,32 @@
 <!doctype html>
 <html>
   <head>
-    <title>MetaMask Tip Button Example</title>
+    <title>DonateEther</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    
-    <h1>ジュースを奢る</h1>
-    <div class="tip-button"></div>
-    <div class="message"></div>
 
-  </body>
+  	<form name="frm">
+		<div>
+			<label for="TwitterID">TwitterID:</label>
+			<input type="text" id="TwitterID" name="donator_twitterId">
+		</div>
+		<div>
+			<label for="amount">Amount:</label>
+			<input type="email" id="amount" name="donator_amount">
+		</div>
+		
+		<div id="submit-button">
+			<button type="button">Donate!</button>
+		</div>
+	</form>
+
+	<div id="form-text"></div>
+
   <script type="text/javascript" src="index.js"></script>
+  </body>
+
 
 
 </html>
