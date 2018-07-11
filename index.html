@@ -7,23 +7,79 @@
   </head>
   <body>
 
+  	<!-- DonateAction用フォーム-->
+
   	<form name="frm">
 		<div>
-			<label for="TwitterID">TwitterID:</label>
+			<label for="TwitterID">TwitterID:</label> <!-- "label for" と "input id" を結びつけると良い -->
 			<input type="text" id="TwitterID" name="donator_twitterId">
 		</div>
 		<div>
 			<label for="amount">Amount:</label>
-			<input type="email" id="amount" name="donator_amount">
+			<input id="amount" name="donator_amount">
 		</div>
 		
-		<div id="submit-button">
+		<div id="donate-button">
 			<button type="button">Donate!</button>
 		</div>
 	</form>
 
-	<div id="form-text"></div>
+	<div id=""></div>
 
+	<!-- // DonateAction用フォーム -->
+	
+
+
+	<!-- Get関数用フォーム -->
+
+	<form name="getDonateNumber">
+		<div>
+			<label>getDonateNumber</label>
+			<button type="">GET!</button>
+		</div>
+		<div id=""></div>
+	</form>
+
+	<form name="getIndexNumber">
+		<div>
+			<label for="getIndexNumber">getIndexNumber:</label>
+			<input id="getIndexNumber" name="getIndexNumber">
+			<button type="">GET!</button>
+		</div>
+		<div id=""></div>
+	</form>
+
+	<form name="getAllAmount">
+		<div>
+			<label for="getAllAmount">getAllAmount:</label>
+			<input id="getAllAmount" name="getAllAmount">
+			<button type="">GET!</button>
+		</div>
+		<div id=""></div>
+	</form>
+
+	<form name="getAmount">
+		<div>
+			<label for="getAmount">getAmount:</label>
+			<input id="getAmount" name="getAmount">
+			<button type="">GET!</button>
+		</div>
+		<div id=""></div>
+	</form>
+
+	<form name="getAllTwitterId">
+		<div>
+			<label for="getAllTwitterId">getAllTwitterId:</label>
+			<input id="getAllTwitterId" name="getAllTwitterId">
+			<button type="">GET!</button>
+		</div>
+		<div id=""></div>
+	</form>
+
+	<!-- Get関数用フォーム -->
+
+
+	<!-- script読み込み -->
   <script type="text/javascript" src="index.js"></script>
   </body>
 

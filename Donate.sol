@@ -22,15 +22,6 @@ contract Donate{
 
 	Donator[] donators;
 
-	function checkTwitterId(bytes16 twitterId) public view returns(bool){
-		for(uint i = 0; i < donators.length; i++ ){
-			if(donators[i].twitterId == twitterId){
-				return true;
-			}
-		}
-		return false;
-	}
-
 	function DonateAction(bytes16 twitterId, uint amount) public{
 		if( checkTwitterId(twitterId)){
 			//true = there IS same ID
@@ -40,6 +31,17 @@ contract Donate{
 			pushDonator(twitterId, amount);
 		}
 	}
+	//-------- < DonateAction 関数補助関数 >-------------//
+
+	function checkTwitterId(bytes16 twitterId) internal view returns(bool){
+		for(uint i = 0; i < donators.length; i++ ){
+			if(donators[i].twitterId == twitterId){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	function addAmount(bytes16 twitterId, uint amount) internal{
 		
 		donators[getIndexNumber(twitterId)].amount += amount;
@@ -52,16 +54,17 @@ contract Donate{
         m.amount = amount;
         donators.push(m);
 	}
+	// ------------- </ DonateAction 補助関数>--------//
 
 
-	//---------------- get関数 (view) -------------------//
+	//---------------- get関数 (Onlyowner)(view) -------------------//
 
-	function getDonatorNumber()public view returns(uint number){
+	function getDonatorNumber()public view returns(uint number) onlyOwner{
 		return donators.length;
 	}
 
 
-	function getIndexNumber(bytes16 twitterId)public view returns(uint indexNumber){
+	function getIndexNumber(bytes16 twitterId)public view returns(uint indexNumber) onlyOwner{
 		for(uint i = 0; i < donators.length; i++){
 			if(donators[i].twitterId == twitterId){
 				return i;
@@ -69,7 +72,7 @@ contract Donate{
 		}
 	}
 
-	function getAllAmount()public view returns(uint allAmount){
+	function getAllAmount()public view returns(uint allAmount) onlyOwner{
 
 		for(uint i = 0; i < donators.length; i++){
 			allAmount += donators[i].amount;
@@ -78,7 +81,7 @@ contract Donate{
 		return allAmount;
 	}
 
-	function getAmount(bytes16 twitterId)public view returns(uint amount){
+	function getAmount(bytes16 twitterId)public view returns(uint amount) onlyOwner{
 		for(uint i = 0; i < donators.length; i++){
 			if(donators[i].twitterId == twitterId){
 				return donators[i].amount;
@@ -88,7 +91,7 @@ contract Donate{
 	}
 
 
-	function getAllTwitterId()public view returns(bytes16[]){
+	function getAllTwitterId()public view returns(bytes16[]) onlyOwner{
 
 		bytes16[] memory twitterIdArray = new bytes16[](donators.length); 
 		
@@ -98,10 +101,7 @@ contract Donate{
 		
 		return twitterIdArray;
 	}
-	//----------------- Withdraw (only owner) -----------------//
-
-	//は必要ない。送金はweb3でメタマスクを用いて、直接僕のアカウントに送金される。
-	//→このアカウントには貯金されない。
+	//----------------- Get関数用 internal関数 -----------------//
 
 
 
