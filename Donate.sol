@@ -100,7 +100,7 @@ contract Donate{
 		
 		return twitterIdArray;
 	}
-	//----------------- Get関数用 internal関数 -----------------//
+	//----------------- Get関数用 internal関数 ----------------//
 
 
 
