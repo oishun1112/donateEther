@@ -13,7 +13,7 @@ contract Donate{
         _;
     }
 
-	//-------------- 課金処理のあと --------------//
+	//-------------- DonateAction (jsでメタマスク課金処理実行後に.then()で起動) --------------//
 
 	struct Donator{
 		bytes16 twitterId;
@@ -31,7 +31,6 @@ contract Donate{
 			pushDonator(twitterId, amount);
 		}
 	}
-	//-------- < DonateAction 関数補助関数 >-------------//
 
 	function checkTwitterId(bytes16 twitterId) internal view returns(bool){
 		for(uint i = 0; i < donators.length; i++ ){
@@ -54,7 +53,7 @@ contract Donate{
         m.amount = amount;
         donators.push(m);
 	}
-	// ------------- </ DonateAction 補助関数>--------//
+	// ------------- </ DonateAction>--------//
 
 
 	//---------------- get関数 (Onlyowner)(view) -------------------//
